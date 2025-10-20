@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AURVO OS HOC — Oro Iluminado en Movimiento</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&family=Orbitron:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --oro: #ffd700;
+      --negro: #000;
+      --gris: #1a1a1a;
+      --blanco: #fafafa;
+    }
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      background: var(--negro);
+      color: var(--oro);
+      font-family: 'Rajdhani', sans-serif;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 60px; background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px); z-index: 999;
+      border-bottom: 1px solid rgba(255,215,0,0.2);
+    }
+    header h1 {
+      font-family: 'Orbitron', sans-serif; letter-spacing: 3px; color: var(--oro);
+    }
+    nav a {
+      margin-left: 25px; color: var(--blanco);
+      text-decoration: none; font-weight: 600; transition: color 0.3s;
+    }
+    nav a:hover { color: var(--oro); }
+    .hero {
+      height: 100vh; background: radial-gradient(circle at center, #111 20%, #000 80%);
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    canvas#bgCanvas {
+      position: absolute; width: 100%; height: 100%; z-index: 1;
+    }
+    .hero h2, .hero h3, .hero a { z-index: 2; position: relative; }
+    .hero h2 {
+      font-size: 4em; font-family: 'Orbitron', sans-serif;
+      text-shadow: 0 0 30px rgba(255,215,0,0.8); animation: pulse 3s infinite;
+    }
+    .hero h3 { color: #d4af37; margin-top: 15px; letter-spacing: 2px; }
+    .hero a {
+      margin-top: 50px; background: linear-gradient(90deg, #f1c40f, #f39c12);
+      color: #000; padding: 14px 36px; border-radius: 8px; text-decoration: none;
+      font-weight: 700; transition: all 0.3s;
+    }
+    .hero a:hover { transform: scale(1.1); box-shadow: 0 0 30px var(--oro); }
+    @keyframes pulse {
+      0%,100% { text-shadow: 0 0 10px #ffd700; }
+      50% { text-shadow: 0 0 40px #fff3b0; }
+    }
+    section {
+      padding: 100px 20px; text-align: center; position: relative; z-index: 2;
+    }
+    section h2 {
+      font-size: 2.5em; color: var(--oro); margin-bottom: 20px; text-transform: uppercase;
+    }
+    section p {
+      color: #ccc; font-size: 1.2em; max-width: 900px; margin: 0 auto;
+    }
+    .gallery {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px; margin-top: 60px; padding: 0 30px;
+    }
+    .gallery img {
+      width: 100%; border-radius: 10px;
+      border: 2px solid rgba(255,215,0,0.3);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05); box-shadow: 0 0 40px rgba(255,215,0,0.7);
+    }
+    footer {
+      background: #050505; padding: 40px 20px; text-align: center;
+      color: #777; font-size: 0.9em;
+      border-top: 1px solid rgba(255,215,0,0.2);
+    }
+    footer a {
+      color: var(--oro); text-decoration: none; font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>AURVO OS HOC</h1>
+    <nav>
+      <a href="#vision">Visión</a>
+      <a href="#galeria">Galería</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <canvas id="bgCanvas"></canvas>
+    <h2>Oro Iluminado en Movimiento</h2>
+    <h3>La Hiperorquestación Cognitiva hecha experiencia visual</h3>
+    <a href="#vision">Entrar al Universo</a>
+  </section>
+
+  <section id="vision">
+    <h2>Visión Dorada</h2>
+    <p>AURVO OS HOC no es un sistema. Es una manifestación digital de lujo, poder e inteligencia.
+       Combina tecnología, arte y orquestación cognitiva en un entorno que brilla como oro líquido.
+       Inspirado por el movimiento, diseñado para el futuro.</p>
+  </section>
+
+  <section id="galeria">
+    <h2>Galería AURVO</h2>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1606813909355-56d0a8a99f4a?auto=format&fit=crop&w=800&q=80" alt="AURVO Car 1" />
+      <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80" alt="AURVO Car 2" />
+      <img src="https://images.unsplash.com/photo-1612874742249-5c3a619f8d2d?auto=format&fit=crop&w=800&q=80" alt="AURVO Design" />
+      <img src="https://images.unsplash.com/photo-1526401485004-2fda9f6d9e82?auto=format&fit=crop&w=800&q=80" alt="AURVO Branding" />
+    </div>
+  </section>
+
+  <footer id="contacto">
+    <p>© 2025 AURVO OS HOC · Fabricado en Chile · Oro en Movimiento</p>
+    <p>Sigue la experiencia en <a href="https://instagram.com/aurvocreativo" target="_blank">@aurvocreativo</a></p>
+  </footer>
+
+  <script>
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    let particlesArray;
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    window.addEventListener('resize', resize);
+    resize();
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+      }
+      update() {
+        this.x += this.speedX; this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255, 215, 0, 0.8)';
+        ctx.fill();
+      }
+    }
+    function initParticles() {
+      particlesArray = [];
+      for (let i = 0; i < 120; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particlesArray.forEach(p => { p.update(); p.draw(); });
+      requestAnimationFrame(animateParticles);
+    }
+    initParticles();
+    animateParticles();
+  </script>
+</body>
+</html>
