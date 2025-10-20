@@ -1,0 +1,59 @@
+#!/bin/bash
+# ─────────────────────────────────────────────
+# 🟡 AURVO OS — Setup Maestro
+# Autor: Joseph El Santo (Maestro)
+# Descripción: Instalador base del entorno AURVO OS sobre Debian (UserLAnd)
+# ─────────────────────────────────────────────
+
+echo "🚀 Iniciando instalación base de AURVO OS..."
+sleep 1
+
+# Actualización del sistema
+apt update && apt upgrade -y
+
+# Paquetes esenciales
+apt install -y sudo curl git wget vim nano python3 python3-pip net-tools unzip zip tar htop lsb-release ca-certificates
+
+# Instalación de herramientas de desarrollo y librerías clave
+apt install -y build-essential cmake pkg-config libssl-dev libffi-dev python3-venv openssh-client
+
+# Configuración de usuario si no existe
+if [ "$EUID" -eq 0 ]; then
+  echo "Creando usuario maestro..."
+  useradd -m -s /bin/bash maestro
+  echo "maestro:aurvo123" | chpasswd
+  usermod -aG sudo maestro
+  echo "Usuario maestro creado con contraseña 'aurvo123'"
+fi
+
+# Directorios base del ecosistema AURVO
+mkdir -p /home/maestro/AURVO/{core,os,autos,studio,secure,apps}
+
+# Variables de entorno AURVO
+echo "export AURVO_HOME=/home/maestro/AURVO" >> /home/maestro/.bashrc
+echo "export PATH=\$AURVO_HOME/os/bin:\$PATH" >> /home/maestro/.bashrc
+echo "alias aurvo='cd \$AURVO_HOME'" >> /home/maestro/.bashrc
+
+# Clon del repositorio central (actualiza cuando tengas el link)
+cd /home/maestro/AURVO/core
+git clone https://github.com/morillogroup/aurvo-os.git || echo "⚠️ Repositorio AURVO no disponible aún."
+
+# Setup de Python (AURVO Engine base)
+python3 -m venv /home/maestro/AURVO/os/venv
+source /home/maestro/AURVO/os/venv/bin/activate
+pip install --upgrade pip
+pip install requests flask psutil rich colorama
+
+# Banner estético
+cat << "EOF"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   🟡  AURVO OS instalado con éxito.
+   Oro en movimiento — Potencia en cada bit.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Usuario: maestro
+Contraseña: aurvo123
+Ubicación base: /home/maestro/AURVO
+EOF
+
+echo "✅ Setup finalizado. Reinicia tu sesión o ejecuta: su - maestro"
