@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maestro — Cantante & Barbero</title>
+  <meta name="description" content="Portafolio, precios y booking de Maestro: cantante y barbero. Reserva tu corte o contrátame para tu evento." />
+  <link rel="canonical" href="https://tu-dominio.example/" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Maestro — Cantante & Barbero" />
+  <meta property="og:description" content="Reserva tu corte o contrátame para tu evento. Calidad premium, sin rodeos." />
+  <meta property="og:url" content="https://tu-dominio.example/" />
+  <meta property="og:image" content="https://tu-dominio.example/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Esquema SEO -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Maestro",
+    "jobTitle":["Singer","Barber"],
+    "description":"Cantante y barbero. Shows privados, eventos y barbería de alto estándar.",
+    "image":"https://tu-dominio.example/og-image.jpg",
+    "url":"https://tu-dominio.example/",
+    "telephone":"+34 922 295 254",
+    "contactPoint":[{
+      "@type":"ContactPoint",
+      "telephone":"+34 922 295 254",
+      "contactType":"reservas",
+      "areaServed":"ES",
+      "availableLanguage":["es"]
+    }],
+    "sameAs":[
+      "https://www.instagram.com/tuusuario",
+      "https://www.tiktok.com/@tuusuario",
+      "https://www.youtube.com/@tuusuario"
+    ],
+    "priceRange":"€€",
+    "makesOffer":[
+      {"@type":"Offer","name":"Corte Premium"},
+      {"@type":"Offer","name":"Show en vivo"}
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#ffffff; --text:#0b1220; --muted:#536071; --surface:#f6f8fb; --border:#e5e7eb;
+      --primary:#2563eb; --accent:#16a34a; --shadow:0 10px 30px rgba(2,6,23,.06);
+      --radius:14px; --maxw:1120px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0b1220; --text:#eef2f7; --muted:#9fb0c0; --surface:#0f172a; --border:#1f2a3a;
+        --primary:#60a5fa; --accent:#22c55e; --shadow:0 10px 30px rgba(0,0,0,.35);
+      }
+    }
+    *{box-sizing:border-box}
+    html:focus-within{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font:16px/1.6 ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";}
+    a{color:var(--primary);text-decoration:none;text-underline-offset:2px}
+    a:hover{text-decoration:underline}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:var(--maxw);margin-inline:auto;padding:clamp(16px,3vw,28px)}
+    .btn{display:inline-block;padding:.9rem 1.2rem;border-radius:12px;border:1px solid transparent;
+      background:var(--primary);color:#fff;font-weight:700;letter-spacing:.2px;box-shadow:var(--shadow);
+      transition:transform .06s ease,box-shadow .2s ease,background .2s ease}
+    .btn:hover{transform:translateY(-1px)}
+    .btn--ghost{background:transparent;border-color:var(--border);color:var(--text)}
+    .btn--accent{background:var(--accent)}
+    .tag{background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:.4rem .7rem;font-weight:700}
+    .topbar{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(8px);
+      background:color-mix(in srgb,var(--bg) 84%,transparent);border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:900;letter-spacing:.4px}
+    .brand .logo{width:38px;height:38px;border-radius:10px;background:
+      radial-gradient(120% 120% at 10% 10%,var(--primary),var(--accent));box-shadow:var(--shadow)}
+    .links{display:flex;gap:clamp(10px,2vw,22px);flex-wrap:wrap}
+    .links a{color:var(--text);font-weight:600;padding:.5rem .6rem;border-radius:10px}
+    .links a[aria-current="page"]{background:var(--surface)}
+    .hero{position:relative;overflow:hidden;border-radius:0 0 24px 24px;background:
+      radial-gradient(1200px 400px at 10% -20%,color-mix(in srgb,var(--primary) 16%,transparent),transparent),
+      radial-gradient(900px 360px at 120% 0%,color-mix(in srgb,var(--accent) 18%,transparent),transparent);
+      border-bottom:1px solid var(--border)}
+    .hero__grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(18px,3vw,32px);align-items:center}
+    @media (max-width:900px){.hero__grid{grid-template-columns:1fr}}
+    section{padding:clamp(36px,6vw,72px) 0}
+    .section-title{font-size:clamp(24px,4vw,38px);line-height:1.15;margin:0 0 16px 0}
+    .muted{color:var(--muted)}
+    .grid{display:grid;gap:clamp(14px,2.2vw,22px);grid-template-columns:repeat(12,1fr)}
+    .col-4{grid-column:span 4}.col-6{grid-column:span 6}.col-8{grid-column:span 8}.col-12{grid-column:1 / -1}
+    @media (max-width:900px){.col-4,.col-6,.col-8{grid-column: 1 / -1}}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:clamp(16px,2.4vw,22px);box-shadow:var(--shadow)}
+    .thumb{aspect-ratio:16/10;border-radius:12px;border:1px solid var(--border);overflow:hidden;margin-bottom:10px;
+      background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--primary) 12%,transparent) 0 10px,transparent 10px 20px),
+      linear-gradient(180deg,color-mix(in srgb,var(--accent) 10%,transparent),transparent)}
+    blockquote{margin:0;font-size:1.05rem} blockquote footer{margin-top:8px;color:var(--muted);font-weight:700}
+    form{display:grid;gap:12px} label{font-weight:700}
+    input,select,textarea{width:100%;padding:.8rem .9rem;border:1px solid var(--border);border-radius:12px;background:#fff0;color:var(--text)}
+    textarea{min-height:140px;resize:vertical}
+    .form-row{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+    @media (max-width:700px){.form-row{grid-template-columns:1fr}}
+    .helper{font-size:.9rem;color:var(--muted)}
+    footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted)}
+    .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;background:#000;color:#fff;padding:.6rem .8rem;border-radius:10px;z-index:999}
+
+    /* Pricing */
+    .pricing{display:grid;gap:clamp(14px,2vw,22px);grid-template-columns:repeat(12,1fr);margin-top:18px}
+    .plan{grid-column:span 4;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+    .plan--featured{border-color:color-mix(in srgb,var(--accent) 48%, var(--border))}
+    .plan__title{margin:0 0 6px 0;font-weight:900}
+    .plan__price{font-size:clamp(22px,3.4vw,28px);font-weight:900;margin:2px 0 12px 0}
+    .plan ul{list-style:none;padding:0;margin:0}
+    .plan li{display:grid;grid-template-columns:20px 1fr;gap:10px;align-items:baseline;margin:8px 0}
+    .plan li::before{content:"✓";font-weight:900;color:var(--accent)}
+    .plan .small{color:var(--muted);font-size:.92rem}
+    @media (max-width:1000px){.plan{grid-column:1 / -1}}
+
+    /* Agenda */
+    .segmented{display:inline-flex;background:var(--surface);border:1px solid var(--border);border-radius:999px;overflow:hidden}
+    .segmented button{appearance:none;border:none;background:transparent;padding:.5rem .9rem;font-weight:800;cursor:pointer}
+    .segmented button[aria-pressed="true"]{background:var(--primary);color:#fff}
+    #agenda-widget{min-height:720px}
+  </style>
+
+  <!-- Calendly widget CSS (necesario para el embed) -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="Ir al inicio">
+        <span class="logo" aria-hidden="true"></span>
+        <span>Maestro</span>
+      </a>
+      <nav class="links" aria-label="Principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#precios">Precios</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#contacto" class="btn btn--ghost">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero__grid" id="contenido">
+      <div>
+        <h1 class="section-title" style="margin-top:8px">
+          Voz que brilla. Tijeras que mandan. Resultados que venden.
+        </h1>
+        <p class="muted">
+          Shows privados, eventos corporativos y barbería premium. Calidad elevada, cero humo.
+        </p>
+        <div class="kpi" role="list" aria-label="Logros" style="display:flex;gap:18px;flex-wrap:wrap;margin-top:18px">
+          <span class="tag" role="listitem">+120 eventos</span>
+          <span class="tag" role="listitem">NPS 97</span>
+          <span class="tag" role="listitem">Barbería de autor</span>
+        </div>
+        <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap">
+          <a class="btn" href="#agenda">Reservar corte</a>
+          <a class="btn btn--accent" href="#agenda">Booking musical</a>
+        </div>
+      </div>
+      <div aria-hidden="true">
+        <div class="thumb" title="Placeholder visual"></div>
+        <div class="helper" style="margin-top:8px">TODO: reemplaza con una foto hero</div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- Servicios -->
+    <section id="servicios">
+      <h2 class="section-title">Servicios</h2>
+      <p class="muted">Oferta clara, pricing honesto. Sin letra pequeña.</p>
+      <div class="grid" style="margin-top:18px">
+        <article class="card col-6">
+          <h3>Corte Premium</h3>
+          <p>Asesoría de estilo + corte + acabado. Entra bien, sal ejecutivo.</p>
+          <ul>
+            <li>Duración: 45–60 min</li>
+            <li>Incluye: lavado, styling, tips de mantenimiento</li>
+          </ul>
+          <a class="btn" href="#agenda">Reservar</a>
+        </article>
+        <article class="card col-6">
+          <h3>Show en Vivo</h3>
+          <p>Repertorio adaptable: pop, R&amp;B, latin vibes. Evento que suena y se siente premium.</p>
+          <ul>
+            <li>Set: 30–90 min</li>
+            <li>Opcional: banda / pista / acústico</li>
+          </ul>
+          <a class="btn btn--accent" href="#agenda">Cotizar</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Precios -->
+    <section id="precios">
+      <h2 class="section-title">Precios</h2>
+      <p class="muted">Transparencia que convierte. Ajusta cifras a tu realidad — aquí van **ejemplos**.</p>
+
+      <div class="pricing">
+        <!-- Barbería -->
+        <article class="plan">
+          <h3 class="plan__title">Corte Premium</h3>
+          <div class="plan__price">€35</div>
+          <ul>
+            <li>Asesoría de imagen</li>
+            <li>Lavado + styling</li>
+            <li>Mantenimiento: guía en 3 pasos</li>
+          </ul>
+          <p class="small">Seña: €10. Cancelación gratuita hasta 24h.</p>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="#agenda">Reservar</a>
+            <a class="btn btn--ghost" href="tel:+34922295254" aria-label="Llamar al 922 295 254">Llamar (922 295 254)</a>
+          </div>
+        </article>
+
+        <article class="plan plan--featured">
+          <h3 class="plan__title">Corte + Barba</h3>
+          <div class="plan__price">€45</div>
+          <ul>
+            <li>Diseño de contornos</li>
+            <li>Toalla caliente</li>
+            <li>Perfume &amp; finish</li>
+          </ul>
+          <p class="small">Seña: €10. Reprogramación 1 vez sin coste.</p>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="#agenda">Reservar</a>
+            <a class="btn btn--accent" target="_blank" rel="noopener"
+               href="https://wa.me/34922295254?text=Hola%20Maestro,%20quiero%20reservar%20Corte%20%2B%20Barba%20para%20[fecha]%20a%20[hora].">
+              WhatsApp
+            </a>
+          </div>
+        </article>
+
+        <!-- Música -->
+        <article class="plan">
+          <h3 class="plan__title">Show en Vivo (hasta 60’)</h3>
+          <div class="plan__price">desde €600</div>
+          <ul>
+            <li>Setlist a medida</li>
+            <li>Rider simple (versión acústica disponible)</li>
+            <li>Factura y contrato</li>
+          </ul>
+          <p class="small">Seña: 30%. Viáticos según venue.</p>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn btn--accent" href="#agenda">Briefing &amp; cotización</a>
+            <a class="btn btn--ghost" target="_blank" rel="noopener"
+               href="https://wa.me/34922295254?text=Hola%20Maestro,%20quiero%20cotizar%20show%20para%20[evento]%20el%20[fecha]%20en%20[lugar].">
+              WhatsApp
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <p class="helper" style="margin-top:10px">
+        *Los importes son orientativos. <strong>TODO:</strong> ajusta tus cifras reales y condiciones.
+      </p>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio">
+      <h2 class="section-title">Portfolio</h2>
+      <p class="muted">Una muestra. El resto en la sesión.</p>
+      <div class="grid" style="margin-top:18px">
+        <figure class="card col-4">
+          <div class="thumb" role="img" aria-label="Corte fade limpio"></div>
+          <figcaption><strong>Corte Fade</strong><br/><span class="muted">Textura limpia, línea precisa</span></figcaption>
+        </figure>
+        <figure class="card col-4">
+          <div class="thumb" role="img" aria-label="Presentación en evento privado"></div>
+          <figcaption><strong>Evento Privado</strong><br/><span class="muted">Setlist tailor‑made</span></figcaption>
+        </figure>
+        <figure class="card col-4">
+          <div class="thumb" role="img" aria-label="Corte clásico ejecutivo"></div>
+          <figcaption><strong>Clásico Ejecutivo</strong><br/><span class="muted">Elegancia atemporal</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonios">
+      <h2 class="section-title">Testimonios</h2>
+      <div class="grid" style="margin-top:18px">
+        <article class="card col-6">
+          <blockquote>
+            “Puntual, fino y con un show que cerró ventas. Volvemos a contratarlo.”
+            <footer>— Dirección Comercial, <span class="muted">TechCorp</span></footer>
+          </blockquote>
+        </article>
+        <article class="card col-6">
+          <blockquote>
+            “El mejor corte que me han hecho. Mi marca personal lo agradece.”
+            <footer>— <span class="muted">Cliente VIP</span></footer>
+          </blockquote>
+        </article>
+      </div>
+    </section>
+
+    <!-- Agenda -->
+    <section id="agenda">
+      <h2 class="section-title">Agenda</h2>
+      <p class="muted">Cierra tu slot en segundos. Confirmación instantánea.</p>
+
+      <!-- Selector de tipo de cita -->
+      <div class="segmented" role="toolbar" aria-label="Tipo de cita">
+        <!-- TODO: reemplaza tuusuario y slugs por los de tu Calendly -->
+        <button type="button" data-url="https://calendly.com/tuusuario/corte-45min" aria-pressed="true">Corte 45’</button>
+        <button type="button" data-url="https://calendly.com/tuusuario/briefing-show-15min" aria-pressed="false">Briefing Show 15’</button>
+      </div>
+
+      <!-- Contenedor del widget -->
+      <div class="card" style="margin-top:14px">
+        <div id="agenda-widget" aria-live="polite">
+          <p class="helper">Cargando agenda… Si no aparece, reserva por
+            <a target="_blank" rel="noopener"
+               href="https://wa.me/34922295254?text=Hola%20Maestro,%20quiero%20reservar%20[servicio]%20el%20[fecha]%20a%20[hora].">
+               WhatsApp
+            </a>
+            o llama al <a href="tel:+34922295254">922 295 254</a>.
+          </p>
+        </div>
+      </div>
+      <p class="helper" style="margin-top:10px">Tus datos no se comparten con terceros. Cero spam.</p>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="card">
+      <h2 class="section-title" style="margin-bottom:6px">Hablemos</h2>
+      <p class="muted">Agenda tu corte o solicita cotización para tu evento.</p>
+
+      <form action="#" method="post" novalidate>
+        <div class="form-row">
+          <div>
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label for="telefono">Teléfono</label>
+            <input id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" />
+          </div>
+          <div>
+            <label for="servicio">Servicio</label>
+            <select id="servicio" name="servicio" required>
+              <option value="">Selecciona…</option>
+              <option>Corte Premium</option>
+              <option>Show en Vivo</option>
+              <option>Otro</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="mensaje">Detalles / Fecha</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Cuéntame lo esencial: fecha, lugar, expectativas…"></textarea>
+        </div>
+
+        <div>
+          <label>
+            <input type="checkbox" name="consentimiento" required aria-describedby="consent-help" />
+            Acepto ser contactad@ para agendar o cotizar.
+          </label>
+          <div id="consent-help" class="helper">Tus datos no se comparten con terceros. Cero spam.</div>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap">
+          <button class="btn" type="submit">Enviar</button>
+          <a class="btn btn--ghost"
+             href="tel:+34922295254"
+             aria-label="Llamar al 922 295 254">
+            Llamar ahora (922 295 254)
+          </a>
+          <a class="btn btn--accent"
+             href="https://wa.me/34922295254?text=Hola%20Maestro,%20quiero%20reservar%20un%20corte%20%2F%20booking%20musical%20para%20[fecha]."
+             target="_blank" rel="noopener"
+             aria-label="Chatear por WhatsApp al 922 295 254">
+            WhatsApp
+          </a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex; gap:14px; align-items:center; justify-content:space-between; flex-wrap:wrap">
+        <small>© <span id="year"></span> Maestro — Cantante & Barbero</small>
+        <small>
+          <a href="mailto:hola@tu-dominio.example">hola@tu-dominio.example</a> ·
+          <a href="https://www.instagram.com/tuusuario" target="_blank" rel="noopener">Instagram</a> ·
+          <a href="https://www.tiktok.com/@tuusuario" target="_blank" rel="noopener">TikTok</a> ·
+          <a href="tel:+34922295254">922 295 254</a>
+        </small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Año dinámico -->
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <!-- Calendly widget JS (necesario para el embed) -->
+  <script id="calendly-js" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+  <!-- Inicialización del widget de Agenda -->
+  <script>
+    (function(){
+      const tabs = document.querySelectorAll('#agenda .segmented button');
+      const widget = document.getElementById('agenda-widget');
+      let activeUrl = tabs[0].dataset.url;
+
+      function mountCalendly(url){
+        // Limpia contenedor
+        widget.innerHTML = '';
+        activeUrl = url;
+        // Si Calendly está disponible, monta widget inline
+        if (window.Calendly && typeof Calendly.initInlineWidget === 'function'){
+          Calendly.initInlineWidget({
+            url: url + '?hide_gdpr_banner=1',
+            parentElement: widget
+          });
+        } else {
+          // Fallback a WhatsApp si aún no cargó el script
+          widget.innerHTML = '<p class="helper">Cargando agenda… Si tarda, ' +
+            '<a target="_blank" rel="noopener" href="https://wa.me/34922295254?text=Hola%20Maestro,%20quiero%20reservar%20[servicio]%20el%20[fecha]%20a%20[hora].">reserva por WhatsApp</a> ' +
+            'o llama al <a href="tel:+34922295254">922 295 254</a>.</p>';
+        }
+      }
+
+      // Eventos de los botones
+      tabs.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          tabs.forEach(b=>b.setAttribute('aria-pressed','false'));
+          btn.setAttribute('aria-pressed','true');
+          mountCalendly(btn.dataset.url);
+        });
+      });
+
+      // Monta la primera vez cuando el DOM esté listo
+      document.addEventListener('DOMContentLoaded', ()=> mountCalendly(activeUrl));
+      // Reintenta cuando el script de Calendly termine de cargar
+      const calScript = document.getElementById('calendly-js');
+      calScript.addEventListener('load', ()=> mountCalendly(activeUrl));
+    })();
+  </script>
+</body>
+</html>
