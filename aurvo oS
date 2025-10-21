@@ -1,0 +1,28 @@
+---
+
+### 🧠 SCRIPT BASE (aurvo_core.py)
+```python
+# aurvo_core.py — Núcleo del sistema AURVO OS
+import os, sys, time
+
+class AurvoCore:
+    def __init__(self):
+        self.version = "1.0"
+        self.modules = []
+        print(f"AURVO OS Core v{self.version} iniciado.")
+
+    def load_module(self, module):
+        self.modules.append(module)
+        print(f"[HOC] Módulo {module} integrado al sistema.")
+
+    def run(self):
+        print("⚙️  Sistema HOC operativo. Ejecutando bucle cognitivo...")
+        while True:
+            time.sleep(2)
+            print("[AURVO] Sincronizando ecosistema...")
+
+if __name__ == "__main__":
+    os.system('clear')
+    aurvo = AurvoCore()
+    aurvo.load_module("SantoSecure")
+    aurvo.run()
