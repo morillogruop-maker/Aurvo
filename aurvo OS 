@@ -1,0 +1,19 @@
+# AURVO OS — Oro en movimiento 🧠⚙️
+Sistema operativo modular creado por **Joseph del Santo (Maestro)**, bajo el marco de **Hiperorquestación Cognitiva (HOC)**.
+
+## 🚀 Estructura
+- **core/** → Núcleo del sistema y coordinación interna  
+- **hoc/** → Inteligencia cognitiva distribuida  
+- **security/** → Módulo SantoSecure  
+- **ai/** → Modelos predictivos y de aprendizaje  
+- **ui/** → Interfaz y shell visual  
+- **modules/** → Aplicaciones y extensiones (Barbería, Música, Auto, etc.)
+
+## 🧠 Filosofía
+> “AURVO OS no es solo software: es un organismo digital que evoluciona contigo.”
+
+## 🛠️ Instalación
+```bash
+git clone https://github.com/<tu_usuario>/AURVO_OS.git
+cd AURVO_OS/install
+bash install.sh
