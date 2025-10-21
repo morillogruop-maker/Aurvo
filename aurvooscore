@@ -1,0 +1,42 @@
+#!/bin/bash
+# 🔱 AURVO PRO GITHUB DEPLOY — Fabricado en Chile
+# Autor: Joseph El Santo
+# Descripción: crea y sube automáticamente el ecosistema AURVO completo a GitHub.
+
+user="JosephElSanto"
+token="TU_TOKEN_AQUI"  # ⬅️ Sustituye esto por tu token de GitHub
+repos=("aurvo-os-core" "santosecure-vault" "ahorraya-ia" "aurvo-barber-pro" "joseph-del-santo-studio" "aurvo-connect")
+
+mkdir -p ~/aurvo-suite && cd ~/aurvo-suite || exit
+
+for repo in "${repos[@]}"; do
+  echo "🚀 Creando y subiendo $repo..."
+  # Crear repositorio en GitHub
+  curl -s -H "Authorization: token $token" \
+       -d "{\"name\":\"$repo\",\"private\":false,\"description\":\"Repositorio oficial de $repo — Ecosistema AURVO 🔱\"}" \
+       https://api.github.com/user/repos > /dev/null
+
+  # Inicializar proyecto local
+  mkdir -p $repo && cd $repo || exit
+  git init -q
+  echo "# 🔱 ${repo^}" > README.md
+  echo "_Ecosistema HOC — Fabricado en Chile_" >> README.md
+  echo "" >> README.md
+  echo "**Autor:** $user" >> README.md
+  echo "**Licencia:** AURVO Open Prototype License" >> README.md
+  echo "" >> README.md
+  echo "🚗 Parte del ecosistema AURVO — Oro en movimiento." >> README.md
+
+  # Subir a GitHub
+  git add .
+  git commit -m "✨ Init ${repo} — Base HOC" -q
+  git branch -M main
+  git remote add origin https://$token@github.com/$user/$repo.git
+  git push -u origin main -q
+  cd ..
+  echo "✅ $repo creado y desplegado correctamente."
+done
+
+echo ""
+echo "🔥 TODOS LOS REPOS AURVO FUERON CREADOS Y SUBIDOS A GITHUB EXITOSAMENTE."
+echo "🌍 Revisa: https://github.com/$user"
