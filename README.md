@@ -1,66 +1,149 @@
-/aurvo-os
- ├── /core
- │   ├── kernel.py               # Núcleo HOC de orquestación
- │   ├── maestro_boot.sh         # Script de inicio UserLAnd / Linux
- │   └── aurvo_daemon.py         # Controlador de módulos
- ├── /ui
- │   ├── index.html              # Dashboard principal (versión que ya generamos)
- │   ├── aurvo_style.css         # Paleta dorado/negro
- │   ├── aurvo_dashboard.js      # Interactividad del panel
- ├── /modules
- │   ├── santo_secure/           # Seguridad avanzada
- │   ├── ahorraya_ai/            # Finanzas inteligentes
- │   ├── aurvo_drive/            # Telemetría automotriz
- │   ├── maestro_cloud/          # Sincronización en la nube
- ├── /assets
- │   ├── logo.svg
- │   ├── branding/               # Elementos visuales de AURVO
- │   └── icons/
- ├── README.md                   # Descripción del proyecto y visión
- ├── LICENSE                     # MIT o GPLv3 recomendada
- ├── requirements.txt            # Dependencias Python/Node
- └── setup.sh                    # Instalador automático
-AURVO_OS/
-│
-├── core/                  # Núcleo del sistema (drivers, base de orquestación)
-│   ├── aurvo_core.py
-│   ├── scheduler.py
-│   └── config.yaml
-│
-├── ui/                    # Interfaz de usuario y shell
-│   ├── aurvo_shell.py
-│   ├── dashboard/
-│   └── assets/
-│
-├── hoc/                   # Hiperorquestación Cognitiva (HOC)
-│   ├── cognitive_engine.py
-│   ├── pipeline_manager.py
-│   └── readme.md
-│
-├── security/              # Módulo SantoSecure
-│   ├── santo_core.py
-│   ├── firewall.py
-│   └── ai_guard.py
-│
-├── ai/                    # IA y motores predictivos
-│   ├── neural_interface.py
-│   └── dataset/
-│
-├── modules/               # Extensiones, apps, plugins
-│   ├── aurvo_music/
-│   ├── aurvo_barber/
-│   └── aurvo_auto/
-│
-├── install/               # Scripts de instalación y despliegue
-│   ├── install.sh
-│   ├── setup.py
-│   └── requirements.txt
-│
-├── tests/
-│   ├── test_core.py
-│   └── test_ui.py
-│
-├── LICENSE
-├── .gitignore
-├── README.md
-└── package.json
+
+💡 Aurvo Creativo — Arsenal de Publicidad & Visuales
+
+Tagline:
+
+> “Donde las ideas se convierten en oro.”
+
+
+
+Aurvo Creativo es la división publicitaria de Sygmare Holding, encargada de diseñar, producir y amplificar el poder visual de todas las marcas del ecosistema:
+🚗 Aurvo Autos
+🧠 Maestro OS
+💰 AhorraYa IA
+💎 Aurvo Style
+🎧 DJ Vyral
+y cada marca nacida bajo la Hiperorquestación Cognitiva (HOC).
+
+
+---
+
+🎯 Propósito
+
+Transformar la publicidad tradicional en arquitectura sensorial: una experiencia que no solo se ve, sino que se siente.
+Combinamos diseño cinematográfico, inteligencia artificial, y estrategia empresarial para crear campañas que no solo venden, sino que trascienden.
+
+> Creamos impacto. Orquestamos atención. Convertimos visión en legado.
+
+
+
+
+---
+
+🧩 Áreas de especialización
+
+Área	Descripción	Repositorios vinculados
+
+Visual Advertising	Creación de campañas visuales, reels, 3D y contenido interactivo.	aurvo-visuals, aurvo-ad-lab
+AI Branding	Generación de logos, slogans, identidades dinámicas mediante IA.	aurvo-ai-interface, aurvo-creativo-web
+Social Growth	Estrategias de posicionamiento digital y marketing algorítmico.	sygmare-marketing, aurvo-social-bot
+Film & Motion	Producción de cortos, intros, renders publicitarios, reels.	aurvo-films, aurvo-cinematics
+Performance Marketing	Automatización y análisis predictivo de conversiones.	aurvo-ads-engine, maestro-os
+
+
+
+---
+
+🔗 Repositorios principales
+
+aurvo-creativo-web → Sitio oficial
+
+aurvo-visuals → Arsenal de renders, campañas y diseño
+
+aurvo-ad-lab → Laboratorio experimental de IA publicitaria
+
+aurvo-films → Producción audiovisual y cinematic reels
+
+sygmare-marketing → Base de datos y dashboards de performance
+
+
+
+---
+
+🧠 Tecnología y herramientas
+
+Render Engines: Unreal Engine, Blender, CapCut AI, Runway ML
+
+Automatización: Maestro OS + HOC
+
+Despliegue digital: Vercel + GitHub Actions
+
+Gestión de campañas: Meta Ads, Google Ads, X (ex-Twitter) Promos, TikTok Studio
+
+IA Generativa: ChatGPT-5, Gemini 2.5 Pro, Midjourney, Leonardo AI
+
+
+
+---
+
+🎥 Output visual
+
+Tipo de pieza	Ejemplo de entrega
+
+Reels Publicitarios	Formato vertical, música original, overlay de marca
+Visuales Cinemáticos	Modelos 3D + animación + branding dinámico
+Banners Premium	Adaptables a web, LinkedIn, Instagram y billboards
+Campañas Multicanal	Video + copy + IA + performance en redes
+Kits de Marca	Logo, slogan, tipografía, motion logo, landing page
+
+
+
+---
+
+📈 Estrategia de crecimiento
+
+Aurvo Creativo opera con una filosofía de Publicidad Orquestada:
+cada pieza es una nota dentro de una sinfonía global de marcas.
+El objetivo: convertir cada clic en conexión emocional y cada impresión en poder cultural.
+
+> KPI principal: atención sostenida en entornos de sobreestimulación.
+
+
+
+
+---
+
+🎨 Identidad visual
+
+Paleta: Oro metálico, negro carbón, blanco perla
+
+Estilo: Minimalismo cinematográfico + lujo industrial
+
+Tipografía: Cinzel Decorative / Poppins
+
+Mood: Inteligencia, misterio, elegancia y control
+
+
+
+---
+
+🧱 Estructura de carpetas (para GitHub)
+
+aurvo-publicidad/
+├── visuals/           # Imágenes, renders, reels
+├── campaigns/         # Archivos de campañas y lanzamientos
+├── templates/         # CapCut, Photoshop, Illustrator
+├── ai-prompts/        # Prompts de generación visual (Gemini / Midjourney)
+├── brandkits/         # Identidades visuales completas
+├── scripts/           # Guiones, copys, ideas narrativas
+└── README.md
+
+
+---
+
+📢 Contacto comercial
+
+Aurvo Creativo — División Publicitaria
+📍 Santiago de Chile | 🌐 aurvo.com
+📧 publicity@aurvo.com
+💼 LinkedIn / Sygmare Holding
+📲 Instagram: @aurvo.creativo
+
+
+---
+
+⚖️ Licencia
+
+© 2025 Sygmare Holding — Todos los derechos reservados.
+Desarrollado bajo el marco HOC (Hiperorquestación Cognitiva).
+Prohibida su reproducción parcial o total sin autorización.
