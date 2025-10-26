@@ -14,4 +14,7 @@ __all__ = [
     "QualitySpec",
     "Orchestrator",
     "OrchestratorConfig",
+    "Totals",
+    "render_json",
+    "render_table",
 ]

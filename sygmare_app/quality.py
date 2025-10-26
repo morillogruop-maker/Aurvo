@@ -44,8 +44,13 @@ class StrictQualityInspector:
             report.add_error(f"La ruta {path} no existe.")
             return report
 
+        target_for_spec = path if path.is_dir() else path.parent
+
         if component.kind == BuildKind.PYTHON:
-            python_files = list(path.rglob("*.py"))
+            if path.is_file():
+                python_files = [path] if path.suffix == ".py" else []
+            else:
+                python_files = list(path.rglob("*.py"))
             if not python_files:
                 report.add_error("No se detectaron archivos Python.")
         elif component.kind == BuildKind.NODE:
@@ -60,12 +65,14 @@ class StrictQualityInspector:
 
         spec = component.quality
         if spec:
-            for required in spec.materialized_paths(path):
+            for required in spec.materialized_paths(target_for_spec):
                 if not required.exists():
                     report.add_error(f"Falta recurso requerido: {required}.")
             if spec.forbid_empty and component.kind != BuildKind.SHELL:
                 if path.is_dir() and not any(path.iterdir()):
                     report.add_error("El directorio del componente está vacío.")
+if path.is_file() and path.stat().st_size == 0:
+                    report.add_error("El archivo del componente está vacío.")
 
         return report
 

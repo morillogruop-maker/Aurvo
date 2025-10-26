@@ -3,6 +3,7 @@ from __future__ import annotations
 import shutil
 import subprocess
 import sys
+from time import perf_counter
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional
@@ -15,6 +16,7 @@ from .statuses import BuildStatus
 class CommandResult:
     status: BuildStatus
     details: Optional[str] = None
+    duration: float | None = None
 
 
 def command_exists(command: str) -> bool:
@@ -58,19 +60,32 @@ def run_command(cmd: List[str], *, cwd: Optional[Path], dry_run: bool) -> subpro
 class PythonBuilder:
     def build(self, component: Component, *, dry_run: bool) -> CommandResult:
         if not component.path.exists():
-            message = f"Directorio {component.path} no encontrado."
+            message = f"Ruta {component.path} no encontrada."
             print(f"  ⚠️  {component.name}: {message}")
             return CommandResult(BuildStatus.MISSING, message)
 
-        python_files = list(component.path.rglob("*.py"))
+        if component.path.is_file():
+            python_files = [component.path] if component.path.suffix == ".py" else []
+        else:
+            python_files = list(component.path.rglob("*.py"))
+
         if not python_files:
             message = "No se encontraron archivos Python para compilar."
             print(f"  ⚠️  {component.name}: {message}")
             return CommandResult(BuildStatus.SKIPPED, message)
 
-        result = run_command([sys.executable, "-m", "compileall", str(component.path)], cwd=None, dry_run=dry_run)
+        if component.path.is_file():
+            cmd = [sys.executable, "-m", "py_compile", str(component.path)]
+            cwd = component.path.parent
+        else:
+            cmd = [sys.executable, "-m", "compileall", str(component.path)]
+            cwd = None
+
+        started = perf_counter()
+        result = run_command(cmd, cwd=cwd, dry_run=dry_run)
+        duration = perf_counter() - started
         status = BuildStatus.BUILT if result.returncode == 0 else BuildStatus.FAILED
-        return CommandResult(status)
+        return CommandResult(status, duration=duration)
 
 
 class NodeBuilder:
@@ -88,12 +103,15 @@ class NodeBuilder:
 
         commands = component.normalized_commands() or [["npm", "install"], ["npm", "run", "build"]]
         status = BuildStatus.BUILT
+        elapsed = 0.0
         for cmd in commands:
+            started = perf_counter()
             result = run_command(cmd, cwd=component.path, dry_run=dry_run)
+            elapsed += perf_counter() - started
             if result.returncode != 0:
                 status = BuildStatus.FAILED
                 break
-        return CommandResult(status)
+        return CommandResult(status, duration=elapsed if elapsed > 0 else None)
 
 
 class ShellBuilder:
@@ -112,17 +130,22 @@ class ShellBuilder:
             current_mode = component.path.stat().st_mode
             component.path.chmod(current_mode | 0o111)
 
+        elapsed = 0.0
         if command_exists("shellcheck"):
+            started = perf_counter()
             result = run_command(["shellcheck", str(component.path)], cwd=None, dry_run=dry_run)
+            elapsed += perf_counter() - started
             if result.returncode != 0:
-                return CommandResult(BuildStatus.FAILED, "shellcheck falló")
+                return CommandResult(BuildStatus.FAILED, "shellcheck falló", elapsed)
 
         for cmd in component.normalized_commands():
+            started = perf_counter()
             result = run_command(cmd, cwd=component.path.parent, dry_run=dry_run)
+            elapsed += perf_counter() - started
             if result.returncode != 0:
-                return CommandResult(BuildStatus.FAILED)
+                return CommandResult(BuildStatus.FAILED, duration=elapsed)
 
-        return CommandResult(BuildStatus.BUILT)
+        return CommandResult(BuildStatus.BUILT, duration=elapsed if elapsed > 0 else None)
 
 
 def builder_registry() -> Dict[BuildKind, object]:

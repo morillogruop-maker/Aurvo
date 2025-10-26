@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from time import perf_counter
 from typing import Iterable, List
 
 from .executors import CommandResult, builder_registry
@@ -24,6 +25,7 @@ class Orchestrator:
     def build(self, components: Iterable[Component]) -> List[BuildRecord]:
         records: List[BuildRecord] = []
         for component in components:
+            component_started = perf_counter()
             print(f"▶ {component.name}")
             report = self._quality.evaluate(component)
             if not report.passed:
@@ -31,7 +33,15 @@ class Orchestrator:
                 print("  ✖ Calidad no superada:")
                 for line in details.splitlines():
                     print(f"    {line}")
-                records.append(BuildRecord(component, BuildStatus.QUALITY_FAILED.value, details))
+                duration = perf_counter() - component_started
+                records.append(
+                    BuildRecord(
+                        component,
+                        BuildStatus.QUALITY_FAILED,
+                        details,
+                        duration,
+                    )
+                )
                 if self.config.stop_on_failure:
                     raise BuildError(f"Calidad fallida para {component.name}")
                 print()
@@ -41,13 +51,27 @@ class Orchestrator:
             if builder is None:
                 message = f"Tipo de componente no soportado: {component.kind}"
                 print(f"  ⚠️  {message}")
-                records.append(BuildRecord(component, BuildStatus.SKIPPED.value, message))
+                duration = perf_counter() - component_started
+                records.append(
+                    BuildRecord(component, BuildStatus.SKIPPED, message, duration)
+                )
                 print()
                 continue
 
+            build_started = perf_counter()
             result: CommandResult = builder.build(component, dry_run=self.config.dry_run)
-            records.append(BuildRecord(component, result.status.value, result.details))
-            print(f"  → Resultado: {result.status.value}\n")
+            build_duration = perf_counter() - build_started
+            total_duration = perf_counter() - component_started
+            result_duration = result.duration if result.duration is not None else build_duration
+            print(f"  → Resultado: {result.status.value} ({result_duration:.2f}s)\n")
+            records.append(
+                BuildRecord(
+                    component,
+                    result.status,
+                    result.details,
+                    total_duration,
+                )
+            )
 
             if result.status == BuildStatus.FAILED and self.config.stop_on_failure:
                 raise BuildError(f"Fallo de compilación en {component.name}")

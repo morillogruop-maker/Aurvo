@@ -5,6 +5,8 @@ from enum import Enum
 from pathlib import Path
 from typing import List, Optional, Sequence
 
+from .statuses import BuildStatus
+
 
 class BuildKind(str, Enum):
     """Canonical build kinds supported by the orchestration engine."""
@@ -52,8 +54,9 @@ class Manifest:
 @dataclass(frozen=True)
 class BuildRecord:
     component: Component
-    status: str
+    status: BuildStatus
     details: Optional[str] = None
+    duration: float | None = None
 
 
 class BuildError(RuntimeError):

@@ -9,6 +9,7 @@ from .manifest import ManifestLoader
 from .models import BuildError
 from .orchestrator import Orchestrator, OrchestratorConfig
 from .planner import StrictPlanner
+from .reporting import Totals, render_json, render_table
 from .statuses import BuildStatus
 
 
@@ -32,6 +33,21 @@ def build_argument_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Detiene la orquestación en el primer fallo de compilación o de calidad.",
     )
+    parser.add_argument(
+        "--format",
+        choices=("table", "json"),
+        default="table",
+        help="Formato de salida para el resumen final.",
+    )
+    parser.add_argument(
+        "--only",
+        action="append",
+        metavar="FILTRO",
+        help=(
+            "Compila solo componentes cuyo nombre contenga el filtro proporcionado. "
+            "Puede especificarse varias veces."
+        ),
+    )
     return parser
 
 
@@ -53,6 +69,17 @@ def run_cli(argv: Optional[Iterable[str]] = None) -> int:
     except BuildError as exc:
         parser.error(str(exc))
 
+    if args.only:
+        lowered_filters = [token.lower() for token in args.only]
+        plan = [
+            component
+            for component in plan
+            if any(token in component.name.lower() for token in lowered_filters)
+        ]
+        if not plan:
+            print("No se encontraron componentes que coincidan con los filtros proporcionados.")
+            return 0
+
     orchestrator = Orchestrator(
         OrchestratorConfig(dry_run=args.dry_run, stop_on_failure=args.stop_on_failure)
     )
@@ -63,20 +90,14 @@ def run_cli(argv: Optional[Iterable[str]] = None) -> int:
         print(f"✖ {exc}")
         return 1
 
-    counts = Counter(record.status for record in records)
+    if args.format == "json":
+        print(render_json(records))
+    else:
+        print(render_table(records))
 
-    print("Resumen:")
-    for record in records:
-        print(f"  - {record.component.name}: {record.status}")
-        if record.details:
-            print(f"      {record.details}")
-
-    print("\nTotales:")
-    for status in BuildStatus:
-        print(f"  {status.value:>14}: {counts.get(status.value, 0)}")
-
-    failures = counts.get(BuildStatus.FAILED.value, 0)
-    quality_failures = counts.get(BuildStatus.QUALITY_FAILED.value, 0)
+    totals = Totals.from_records(records)
+    failures = totals.counts[BuildStatus.FAILED]
+    quality_failures = totals.counts[BuildStatus.QUALITY_FAILED]
     return 0 if failures == 0 and quality_failures == 0 else 1
 
 
