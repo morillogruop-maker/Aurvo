@@ -71,7 +71,7 @@ class StrictQualityInspector:
             if spec.forbid_empty and component.kind != BuildKind.SHELL:
                 if path.is_dir() and not any(path.iterdir()):
                     report.add_error("El directorio del componente está vacío.")
-                if path.is_file() and path.stat().st_size == 0:
+if path.is_file() and path.stat().st_size == 0:
                     report.add_error("El archivo del componente está vacío.")
 
         return report
