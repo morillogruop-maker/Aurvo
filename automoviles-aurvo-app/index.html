@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#08080c">
+    <meta name="description" content="Aurvo Automóviles - suite móvil magistral para marketing automotriz premium en Android y ecosistemas conectados.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Aurvo Automóviles · Suite móvil magistral</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" type="image/svg+xml" href="icons/app-icon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="pwa-shell">
+        <header class="topbar" aria-label="Navegación principal">
+            <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a class="brand" href="#hero">
+                <span class="brand-mark">AURVO</span>
+                <span class="brand-sub">Automóviles</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#suite" data-nav>Suite</a>
+                <a href="#experiencia" data-nav>Experiencia</a>
+                <a href="#android" data-nav>Android</a>
+                <a href="#ecosistema" data-nav>Ecosistema</a>
+                <a href="#journey" data-nav>Ruta</a>
+                <a href="#clientes" data-nav>Clientes</a>
+                <a href="#contacto" class="btn btn-outline" data-nav>Solicitar demo</a>
+            </nav>
+        </header>
+
+        <aside class="drawer" aria-hidden="true">
+            <nav>
+                <a href="#hero" data-nav>Inicio</a>
+                <a href="#suite" data-nav>Suite móvil</a>
+                <a href="#experiencia" data-nav>Experiencia inmersiva</a>
+                <a href="#android" data-nav>Android magistral</a>
+                <a href="#ecosistema" data-nav>Ecosistema conectado</a>
+                <a href="#journey" data-nav>Ruta GTM</a>
+                <a href="#clientes" data-nav>Clientes</a>
+                <a href="#contacto" data-nav>Contacto</a>
+            </nav>
+            <div class="drawer-cta">
+                <p>¿Listo para dirigir campañas de lujo desde tu Android?</p>
+                <a href="#contacto" class="btn btn-primary">Hablar con Aurvo</a>
+            </div>
+        </aside>
+
+        <main class="main">
+            <section id="hero" class="section hero" aria-labelledby="hero-title">
+                <div class="hero-text">
+                    <span class="badge">Maestro OS · Android Edition</span>
+                    <h1 id="hero-title">La app móvil ultra desarrollada para dominar el marketing automotriz de lujo.</h1>
+                    <p>Aurvo Maestro condensa analítica cognitiva, activaciones inmersivas y control operativo en una experiencia nativa de Android. Diseñada para directores que necesitan respuestas en tiempo real, desde cualquier lugar.</p>
+                    <div class="cta-group">
+                        <a href="#android" class="btn btn-primary">Explorar la app</a>
+                        <a href="#suite" class="btn btn-secondary">Ver módulos</a>
+                    </div>
+                    <ul class="hero-highlights" aria-label="Capacidades principales">
+                        <li>Orquestación con IA en 27 mercados simultáneos</li>
+                        <li>Gemelos digitales de clientes premium</li>
+                        <li>Streaming 8K y realidad aumentada sincronizada</li>
+                    </ul>
+                </div>
+                <div class="hero-visual" data-animate>
+                    <div class="hero-device">
+                        <div class="status-bar" aria-hidden="true">
+                            <span>09:45</span>
+                            <span>5G Ultra</span>
+                            <span>98%</span>
+                        </div>
+                        <div class="device-content">
+                            <div class="device-header">
+                                <span class="pill">Aurvo Command</span>
+                                <p>Vanta X · Semana 06</p>
+                                <h2>Panel ejecutivo</h2>
+                            </div>
+                            <div class="device-stats">
+                                <article>
+                                    <h3 data-counter="128" data-suffix="K">0</h3>
+                                    <p>Impactos de lujo</p>
+                                </article>
+                                <article>
+                                    <h3 data-counter="217" data-prefix="+" data-suffix="%">0</h3>
+                                    <p>ROAS dinámico</p>
+                                </article>
+                                <article>
+                                    <h3 data-counter="4.8" data-decimals="1" data-suffix="s">0</h3>
+                                    <p>Respuesta cognitiva</p>
+                                </article>
+                            </div>
+                            <div class="device-canvas">
+                                <div class="canvas-card">
+                                    <p>Voice Pilot ejecutó <strong>showroom inmersivo</strong> en Dubái.</p>
+                                    <span>Hace 2 min</span>
+                                </div>
+                                <div class="canvas-card">
+                                    <p><strong>IA Maestro</strong> reasignó presupuesto +12% para leads Black Card.</p>
+                                    <span>Hace 5 min</span>
+                                </div>
+                                <div class="canvas-card">
+                                    <p><strong>Synapse LX</strong> activó realidad aumentada en pista nocturna.</p>
+                                    <span>Hace 8 min</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-side">
+                        <div class="metric">
+                            <span class="metric-label">Tiempo de despliegue</span>
+                            <span class="metric-value" data-counter="47" data-suffix="%">0</span>
+                            <p>más veloz que campañas tradicionales.</p>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Clientes activos</span>
+                            <span class="metric-value" data-counter="312" data-suffix="" data-prefix="+">0</span>
+                            <p>marcas premium conectadas al ecosistema Aurvo.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="suite" class="section suite" aria-labelledby="suite-title">
+                <header class="section-header">
+                    <h2 id="suite-title">Suite móvil Aurvo Maestro</h2>
+                    <p>Cada módulo está diseñado como una pantalla especializada dentro de la app. Cambia de vista para explorar cómo la suite controla el ciclo completo de marketing.</p>
+                </header>
+                <div class="suite-grid">
+                    <div class="suite-controls" role="tablist" aria-label="Pantallas de la app">
+                        <button type="button" class="suite-control active" data-screen="estrategia" role="tab" aria-selected="true" aria-controls="screen-estrategia" id="tab-estrategia">Estrategia adaptativa</button>
+                        <button type="button" class="suite-control" data-screen="activaciones" role="tab" aria-selected="false" aria-controls="screen-activaciones" id="tab-activaciones">Activaciones inmersivas</button>
+                        <button type="button" class="suite-control" data-screen="inteligencia" role="tab" aria-selected="false" aria-controls="screen-inteligencia" id="tab-inteligencia">Inteligencia cognitiva</button>
+                    </div>
+                    <div class="suite-device" data-screen-container>
+                        <article class="screen active" id="screen-estrategia" data-screen-panel="estrategia" role="tabpanel" aria-labelledby="tab-estrategia">
+                            <header>
+                                <span class="pill">Campaña global</span>
+                                <h3>Orquestador Maestro</h3>
+                                <p>Prioriza mercados, define inversiones y alinea equipos en un panel móvil.</p>
+                            </header>
+                            <ul>
+                                <li><span>Prioridad 1</span><strong>Hong Kong</strong><small>+18% leads plutonio</small></li>
+                                <li><span>Prioridad 2</span><strong>Ginebra</strong><small>Campaña nocturna</small></li>
+                                <li><span>Prioridad 3</span><strong>São Paulo</strong><small>Focus streaming 8K</small></li>
+                            </ul>
+                            <footer>
+                                <p>Proyección ROI</p>
+                                <div class="progress">
+                                    <span style="width: 82%"></span>
+                                </div>
+                            </footer>
+                        </article>
+                        <article class="screen" id="screen-activaciones" data-screen-panel="activaciones" role="tabpanel" aria-labelledby="tab-activaciones" hidden>
+                            <header>
+                                <span class="pill">Modo Showroom</span>
+                                <h3>Motor inmersivo</h3>
+                                <p>Activa experiencias VR, AR y streaming sincronizado con un toque.</p>
+                            </header>
+                            <div class="screen-cards">
+                                <div>
+                                    <h4>Reality Suite</h4>
+                                    <p>Sincroniza iluminación, sonido espacial y clima.</p>
+                                    <span>Listo en 17s</span>
+                                </div>
+                                <div>
+                                    <h4>Track Director</h4>
+                                    <p>Camino virtual en pista negra con telemetría en vivo.</p>
+                                    <span>+9.4 NPS</span>
+                                </div>
+                            </div>
+                            <footer>
+                                <p>Experiencias activas</p>
+                                <div class="chips">
+                                    <span>Proyección holográfica</span>
+                                    <span>Personal shopper</span>
+                                    <span>Entrega metaverso</span>
+                                </div>
+                            </footer>
+                        </article>
+                        <article class="screen" id="screen-inteligencia" data-screen-panel="inteligencia" role="tabpanel" aria-labelledby="tab-inteligencia" hidden>
+                            <header>
+                                <span class="pill">Cerebro cognitivo</span>
+                                <h3>Insights predictivos</h3>
+                                <p>Anticipa la demanda y genera acciones automatizadas según comportamiento.</p>
+                            </header>
+                            <div class="insight-grid">
+                                <div>
+                                    <strong data-counter="93" data-suffix="%">0</strong>
+                                    <span>Propensión de compra</span>
+                                </div>
+                                <div>
+                                    <strong data-counter="12" data-suffix="min">0</strong>
+                                    <span>Tiempo medio de reacción</span>
+                                </div>
+                                <div>
+                                    <strong data-counter="36" data-suffix="">0</strong>
+                                    <span>Comandos automatizados</span>
+                                </div>
+                            </div>
+                            <footer class="insight-footer">
+                                <p>La IA explica cada decisión con transparencia y propone ajustes en lenguaje natural.</p>
+                            </footer>
+                        </article>
+                    </div>
+                    <div class="suite-notes">
+                        <article>
+                            <h3>Modo directivo</h3>
+                            <p>Resumen ejecutivo, alertas críticas y control total sin abandonar la reunión.</p>
+                        </article>
+                        <article>
+                            <h3>Modo operación</h3>
+                            <p>Coordina activaciones, logística y CRM en sincronía desde tu Android o tablet.</p>
+                        </article>
+                        <article>
+                            <h3>Modo performance</h3>
+                            <p>Optimiza presupuesto con predicciones y simulaciones de escenarios en tiempo real.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experiencia" class="section experiencia" aria-labelledby="experiencia-title">
+                <header class="section-header">
+                    <h2 id="experiencia-title">Experiencia inmersiva Aurvo</h2>
+                    <p>Construimos momentos imposibles de ignorar. Cada interacción está diseñada para lucir impecable en Android, de la primera notificación al cierre de venta.</p>
+                </header>
+                <div class="experience-grid">
+                    <article class="experience-card" data-animate>
+                        <h3>Pulse Journey</h3>
+                        <p>Mapa en vivo de emociones con biometría opcional y respuestas creativas automáticas.</p>
+                        <div class="tag-row">
+                            <span>Biofeedback</span>
+                            <span>UX adaptativa</span>
+                        </div>
+                    </article>
+                    <article class="experience-card" data-animate>
+                        <h3>Lienzo 4D</h3>
+                        <p>Micro historias en formato vertical, mezclando video volumétrico y voz generativa.</p>
+                        <div class="tag-row">
+                            <span>Video volumétrico</span>
+                            <span>VoiceOver IA</span>
+                        </div>
+                    </article>
+                    <article class="experience-card" data-animate>
+                        <h3>Concierge infinito</h3>
+                        <p>Asistente híbrido humano/IA que gestiona pruebas de manejo, reservas y experiencias VIP.</p>
+                        <div class="tag-row">
+                            <span>24/7</span>
+                            <span>Protocolos VIP</span>
+                        </div>
+                    </article>
+                    <article class="experience-card" data-animate>
+                        <h3>Datos sin fricción</h3>
+                        <p>Conectamos CRM, DMP, APIs de movilidad y transacciones para garantizar continuidad.</p>
+                        <div class="tag-row">
+                            <span>ISO 27001</span>
+                            <span>Latencia ultra baja</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="android" class="section android" aria-labelledby="android-title">
+                <header class="section-header">
+                    <h2 id="android-title">Android magistral con IA humana</h2>
+                    <p>La app responde a gestos, voz y contexto. Integra sensores del vehículo, wearables y data center Aurvo para entregar decisiones inmediatas.</p>
+                </header>
+                <div class="android-grid">
+                    <div class="voice-panel" data-animate>
+                        <h3>Aurvo Voice Pilot</h3>
+                        <p>Controla todo con tu voz en español, inglés o árabe. La IA entiende matices y ejecuta en segundos.</p>
+                        <button type="button" class="btn btn-voice" data-voice aria-pressed="false">Iniciar comando</button>
+                        <p class="voice-status" data-voice-status>Escucha pasiva · listo para recibir órdenes</p>
+                    </div>
+                    <div class="timeline" data-animate>
+                        <header>
+                            <span class="pill">Live Feed</span>
+                            <button type="button" class="refresh" data-feed-refresh aria-label="Actualizar actividad">Actualizar</button>
+                        </header>
+                        <ul class="timeline-list" data-feed>
+                            <li>
+                                <time datetime="09:41">09:41</time>
+                                <p>Reality Suite encendió sala inmersiva en Ciudad de México.</p>
+                            </li>
+                            <li>
+                                <time datetime="09:38">09:38</time>
+                                <p>Analytics Edge detectó intención de compra en Londres (+21%).</p>
+                            </li>
+                            <li>
+                                <time datetime="09:35">09:35</time>
+                                <p>Concierge infinito programó test drive privado en Abu Dabi.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="android-card" data-animate>
+                        <h3>Modo circuito</h3>
+                        <p>Supervisa lanzamientos desde el coche: telemetría, cámaras 360º y contenido con latencia sub 100ms.</p>
+                        <ul>
+                            <li>Integración Android Automotive</li>
+                            <li>Edge computing en pista</li>
+                            <li>Transferencia segura</li>
+                        </ul>
+                    </div>
+                    <div class="android-card" data-animate>
+                        <h3>Modo nocturno</h3>
+                        <p>Optimizado para cabinas oscuras con contraste dorado y accesibilidad AAA.</p>
+                        <ul>
+                            <li>Controles hápticos</li>
+                            <li>Detección de mirada</li>
+                            <li>Alertas personalizadas</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="ecosistema" class="section ecosistema" aria-labelledby="ecosistema-title">
+                <header class="section-header">
+                    <h2 id="ecosistema-title">Ecosistema Aurvo conectado</h2>
+                    <p>Integramos la app con vehículos, showrooms, data centers y partners de lujo para una experiencia continua.</p>
+                </header>
+                <div class="ecosystem-map">
+                    <div class="map-node" data-animate>
+                        <h3>Vanta Cloud</h3>
+                        <p>Infraestructura propia con encriptación cuántica y replicación en 5 continentes.</p>
+                    </div>
+                    <div class="map-node" data-animate>
+                        <h3>Alliances</h3>
+                        <p>Integraciones con bancos premium, aerolíneas privadas y clubes exclusivos.</p>
+                    </div>
+                    <div class="map-node" data-animate>
+                        <h3>Showroom Nexus</h3>
+                        <p>Red híbrida físico-digital con experiencias 4D y personalización instantánea.</p>
+                    </div>
+                    <div class="map-node" data-animate>
+                        <h3>Data Ethics Board</h3>
+                        <p>Gobernanza transparente y certificaciones globales de privacidad.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="journey" class="section journey" aria-labelledby="journey-title">
+                <header class="section-header">
+                    <h2 id="journey-title">Ruta go-to-market en 6 semanas</h2>
+                    <p>Metodología modular para desplegar la app, alinear equipos y escalar campañas de lujo.</p>
+                </header>
+                <ol class="journey-steps">
+                    <li data-animate>
+                        <span>Semana 1</span>
+                        <h3>Diagnóstico 360º</h3>
+                        <p>Evaluamos canales, audiencias y datos para configurar la instancia Aurvo.</p>
+                    </li>
+                    <li data-animate>
+                        <span>Semana 2</span>
+                        <h3>Blueprint maestro</h3>
+                        <p>Definimos journeys, mensajes hiper personalizados y KPIs.</p>
+                    </li>
+                    <li data-animate>
+                        <span>Semana 3</span>
+                        <h3>Integraciones críticas</h3>
+                        <p>Conectamos CRM, DMP, flotas y servicios financieros.</p>
+                    </li>
+                    <li data-animate>
+                        <span>Semana 4</span>
+                        <h3>Labs & prototipos</h3>
+                        <p>Probamos experiencias AR/VR y automatizaciones con usuarios reales.</p>
+                    </li>
+                    <li data-animate>
+                        <span>Semana 5</span>
+                        <h3>Despliegue beta</h3>
+                        <p>Activamos campaña controlada y ajustamos IA según performance.</p>
+                    </li>
+                    <li data-animate>
+                        <span>Semana 6</span>
+                        <h3>Lanzamiento total</h3>
+                        <p>Operación 24/7 con monitoreo cognitivo y concierge exclusivo.</p>
+                    </li>
+                </ol>
+            </section>
+
+            <section id="clientes" class="section clientes" aria-labelledby="clientes-title">
+                <header class="section-header">
+                    <h2 id="clientes-title">Clientes que confían en Aurvo</h2>
+                    <p>Marcas automotrices y de lujo confían en nosotros para elevar sus experiencias digitales.</p>
+                </header>
+                <div class="testimonial-grid">
+                    <article class="testimonial" data-animate>
+                        <blockquote>
+                            “Transformamos un lanzamiento regional en una experiencia global sincronizada. La app Aurvo nos da control total desde un Android plegable.”
+                        </blockquote>
+                        <p class="author">Directora de marketing · Hyperion Motors</p>
+                    </article>
+                    <article class="testimonial" data-animate>
+                        <blockquote>
+                            “Los tableros cognitivos anticipan la demanda y nos permiten ofrecer experiencias a medida incluso antes de que el cliente llegue al showroom.”
+                        </blockquote>
+                        <p class="author">CMO · Élan Automotive</p>
+                    </article>
+                    <article class="testimonial" data-animate>
+                        <blockquote>
+                            “La integración con Android Automotive nos dio datos en tiempo real para personalizar la prueba de manejo y cerrar ventas en pista.”
+                        </blockquote>
+                        <p class="author">Head of Experience · Noir Performance</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="contacto" class="section contacto" aria-labelledby="contacto-title">
+                <header class="section-header">
+                    <h2 id="contacto-title">Solicita una demo personalizada</h2>
+                    <p>Coordina una sesión con nuestros estrategas y descubre cómo Aurvo Maestro puede impulsar tu marca.</p>
+                </header>
+                <form class="contact-form" novalidate>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+                            <span class="error" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="correo">Correo corporativo</label>
+                            <input type="email" id="correo" name="correo" autocomplete="email" required>
+                            <span class="error" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" autocomplete="tel" required>
+                            <span class="error" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="empresa">Empresa</label>
+                            <input type="text" id="empresa" name="empresa" autocomplete="organization" required>
+                            <span class="error" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="interes">¿Qué te interesa?</label>
+                            <select id="interes" name="interes" required>
+                                <option value="" selected disabled>Selecciona una opción</option>
+                                <option value="lanzamiento">Lanzamiento de modelo</option>
+                                <option value="experiencia">Experiencias inmersivas</option>
+                                <option value="crm">Integración CRM/Android Automotive</option>
+                                <option value="consultoria">Consultoría estratégica</option>
+                            </select>
+                            <span class="error" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group form-full">
+                            <label for="mensaje">Describe tu proyecto</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                            <span class="error" aria-live="polite"></span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar solicitud</button>
+                    <p class="form-status" role="status" aria-live="polite"></p>
+                </form>
+            </section>
+        </main>
+
+        <div class="floating-hub" data-animate>
+            <p>Próximos lanzamientos: Aurvo Atlas y Maestro Edge.</p>
+            <a href="#contacto" class="btn btn-primary">Reservar acceso prioritario</a>
+        </div>
+
+        <nav class="bottom-nav" aria-label="Navegación secundaria">
+            <a href="#hero" data-nav>Inicio</a>
+            <a href="#suite" data-nav>Suite</a>
+            <a href="#android" data-nav>Android</a>
+            <a href="#contacto" data-nav>Contacto</a>
+        </nav>
+
+        <footer class="footer">
+            <p>© 2025 Aurvo Automóviles · Ingeniería creativa para experiencias de lujo.</p>
+            <a href="#contacto">Solicitar consultoría magistral</a>
+        </footer>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
