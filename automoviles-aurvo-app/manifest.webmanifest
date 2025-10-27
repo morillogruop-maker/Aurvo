@@ -1,0 +1,17 @@
+{
+  "name": "Aurvo Automóviles",
+  "short_name": "Aurvo",
+  "description": "Experiencias de marketing automotriz premium con app Android y PWA Aurvo Maestro.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#c8a951",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "icons/app-icon.svg",
+      "sizes": "128x128",
+      "type": "image/svg+xml"
+    }
+  ]
+}
